@@ -38,6 +38,17 @@ export default function Home() {
 			>
 				Save Text
 			</button>
+			<button
+				className="text-2xl ml-8 font-bold border-4 px-2 border-white rounded"
+				onClick={() => {
+					const newQuotes = []
+					setQuotes(newQuotes)
+					setText("")
+				}}
+			>
+				Delete Text
+			</button>
+			
 			<div>
 			<input
 				className="text-2xl text-black mt-12"
