@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 
 export default function Home() {
 	const [quotes, setQuotes] = useState([])
@@ -9,6 +10,9 @@ export default function Home() {
 	return ( 
 		
 		<div className="bg-cover bg-my-bg-image w-full h-screen ">
+			<Link href="/secound">
+				<h1> Go to another page</h1>
+			</Link>
 		<div className="mx-auto w-fit mt-80">
 			<div className="text-4xl text-red-500 text-center animate-bounce">
 				{quotes.map((quote) => {
