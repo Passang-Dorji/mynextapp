@@ -15,11 +15,13 @@ export default async function Home() {
 	console.log(data)
 	return (
 		<>
+		<div className="bg-cover bg-my-bg-image w-full h-screen ">
 			<Lyrics
 				lyrics={data.lyrics}
 				artist={"Coldplay"}
 				title={"Adventure of a Lifetime"}
 			/>
+			</div>
 		</>
 	)
 }
