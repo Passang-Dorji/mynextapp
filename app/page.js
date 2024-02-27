@@ -29,7 +29,8 @@ export default function Home() {
 			
 			<input
 				className="text-2xl text-black mt-12"
-				type="text" 
+				type="text"
+				placeholder="Enter the Text" 
 				onChange={(event) => setText(event.target.value)}
 			/>
 			<button
