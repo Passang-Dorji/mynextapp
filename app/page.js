@@ -1,27 +1,78 @@
-import Lyrics from "./components/lyrics"
+"use client"
 
-async function getData() {
-	const res = await fetch('https://api.lyrics.ovh/v1/Coldplay/Adventure of a Lifetime')
+import { useState } from "react"
 
-	if (!res.ok) {
-		throw new Error('Failed to fetch data')
-	}
+export default function Home() {
+	const [quotes, setQuotes] = useState([])
+	const [text, setText] = useState("Hello")
 
-	return res.json()
-}
-
-export default async function Home() {
-	const data = await getData()
-	console.log(data)
-	return (
-		<>
+	return ( 
+		
 		<div className="bg-cover bg-my-bg-image w-full h-screen ">
-			<Lyrics
-				lyrics={data.lyrics}
-				artist={"Coldplay"}
-				title={"Adventure of a Lifetime"}
-			/>
+		<div className="mx-auto w-fit mt-80">
+			<div className="text-4xl text-red-500 text-center animate-bounce">
+				{quotes.map((quote) => {
+					return (
+						<p class>
+							{quote}
+						</p>
+					)
+				})}
 			</div>
-		</>
+			<div className="text-8xl text-green-500 text-center mt-12 bg-fuchsia-700 border-white rounded full">
+				{text}
+			</div>
+			
+			<input
+				className="text-2xl text-black mt-12"
+				type="text" 
+				onChange={(event) => setText(event.target.value)}
+			/>
+			<button
+				className="text-2xl ml-8 font-bold border-4 px-2 border-white rounded"
+				onClick={() => {
+					const newQuotes = quotes.concat([text])
+					setQuotes(newQuotes)
+					setText("")
+				}}
+			>
+				Save Text
+			</button>
+			<div>
+			<input
+				className="text-2xl text-black mt-12"
+				type="text" 
+				onChange={(event) => setText(event.target.value)}
+			/>
+			<button
+				className="text-3xl font-bold border-5 px-7 ml-3 border-green rounded-full bg-cyan-900"
+				onClick={() => {
+					const squote=quotes.concat([text.split("").reverse().join("")])
+					setQuotes(squote)
+					setText("")
+
+				}}
+				>
+			Reverse Text
+			</button>
+			</div>
+			</div>
+		</div>
 	)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
